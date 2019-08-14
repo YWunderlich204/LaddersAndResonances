@@ -8,8 +8,6 @@ const NSigma = 150
 const s = 16*mPi^2 + 1e-5
 const SigmaPointsWeights = SigmaPointsWeightsHelp(4*mPi^2,(sqrt(s) - mPi)^2,NSigma)
 const BKernelTable = BKernelSymmHelp(SigmaPointsWeights,s)
-const BKernelPlotTable = BKernelPlotHelp(SigmaPointsWeights,s)
-
 
 #                              _|                _|
 #  _|_|_|  _|_|      _|_|_|  _|_|_|_|  _|  _|_|      _|    _|
@@ -26,7 +24,8 @@ const InvM = inv(M)
 const LadderBarTable = InvM*BKernelTable
 const LadderTable = LadderHelp(LadderBarTable, SigmaPointsWeights, s)
 #
-const RescatteringCorrectionsTable = LadderTable - BKernelPlotTable
+# const BKernelPlotTable = BKernelPlotHelp(SigmaPointsWeights,s)
+# const RescatteringCorrectionsTable = LadderTable - BKernelPlotTable
 # display(RescatteringCorrectionsTable[5])
 const LadderSymmetryCheckTable = LadderTable - transpose(LadderTable)
 @show extrema(abs.(LadderSymmetryCheckTable))
