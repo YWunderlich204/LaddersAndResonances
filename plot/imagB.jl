@@ -13,7 +13,7 @@ const Phi = Kibble.(σW[1],s,σW[1]')
 balanceplot(Phi; xy=σW[1], title="Kibble function: Dalitz plot(>0) in legendre coordinates")
 savefig(joinpath("plot","Kibble.pdf"))
 #
-const B = BKernelSymmHelp(σW,s)
+const B = BKernelPlotHelp(σW,s)
 plot(layout=grid(1,2), size=(1000,350),
     balanceplot(real.(B); xy=σW[1], title="Re B"),
     balanceplot(imag.(B); xy=σW[1], title="Im B", cscale=1))
