@@ -13,3 +13,5 @@ end
 function Rho(s, sigma)
 	sqrt(Complex(KaellenLambda(s,sigma,mPi^2)))/(8*pi*s)
 end
+
+Kibble(σp,s,σ) = σ*σp*(3*mPi^2+s-σ-σp)-mPi^2*(s-mPi^2)^2

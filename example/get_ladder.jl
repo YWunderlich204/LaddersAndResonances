@@ -41,8 +41,9 @@ const LadderSymmetryCheckTable = LadderTable - transpose(LadderTable)
 
 using Plots
 let σv = SigmaPointsWeights[1]
-	plot(layout=grid(1,2), size=(1000,350))
-	heatmap!(sp=1, σv, σv, real.(LadderTable), title="Re(Ladder)")
-	heatmap!(sp=2, σv, σv, imag.(LadderTable), title="Im(Ladder)")
+	plot(layout=grid(1,2), size=(1000,350),
+		balanceplot(real.(LadderTable); xy=σv, title="Re L"),
+		balanceplot(imag.(LadderTable); xy=σv, title="Im L"),
+		)
 end
 savefig(joinpath("plot","get_ladder.test.pdf"))
